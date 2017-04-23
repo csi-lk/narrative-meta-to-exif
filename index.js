@@ -2,7 +2,6 @@
 const fs = require('fs')
 const exiftool = require('node-exiftool')
 const p = require('commander')
-const chalk = require('chalk')
 const j2ed = require('./library/js-to-exif-date.js')
 
 const log = console.log
