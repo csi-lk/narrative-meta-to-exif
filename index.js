@@ -3,6 +3,7 @@ const fs = require('fs')
 const exiftool = require('node-exiftool')
 const p = require('commander')
 const chalk = require('chalk')
+const j2ed = require('./library/js-to-exif-date.js')
 
 const log = console.log
 const ep = new exiftool.ExiftoolProcess()
@@ -26,7 +27,18 @@ if (!p.photo || !p.meta) {
         // Read corresponding meta file in directory
         fs.readFile(`${p.meta}${item.split('.')[0]}.json`, (fileErr, data) => {
           if (fileErr) throw fileErr
-          log(JSON.parse(data))
+          // Get the metadata from the corresponding file
+          const metadata = JSON.parse(data)
+          // Get the datetime and put it in EXIF format
+          const dateTime = j2ed(new Date(metadata.taken_at_local))
+          // Write datetime to photo
+          ep
+            .open()
+            .then(() => ep.writeMetadata(`${p.photo}${item}`, {
+              DateTimeOriginal: dateTime,
+              CreateDate: dateTime,
+            }, ['overwrite_original']))
+            .then(log)
         })
       }
       return item
