@@ -1,0 +1,14 @@
+{
+  "name": "narrative-exif-nodejs",
+  "version": "1.0.0",
+  "description": "To set EXIF metadata on downloaded Narrative Clip photos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "narrative"
+  ],
+  "author": "Callum Silcock",
+  "license": "MIT"
+}
