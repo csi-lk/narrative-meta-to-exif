@@ -11,15 +11,15 @@ p
   .version('0.0.1')
   .option('-p, --photo <path>', 'Photo Directory')
   .option('-m, --meta <path>', 'Meta Directory')
-  .parse(process.argv);
+  .parse(process.argv)
 
-if(!p.photo || !p.meta) {
-  console.log('Need photo directory and meta directory set')
+if (!p.photo || !p.meta) {
+  log('Need photo directory and meta directory set')
 } else {
-  console.log(p.meta)
-  fs.readdir(p.photo, function(err, items) {
-    if(!err){
-      console.log(items);
+  log(p.meta)
+  fs.readdir(p.photo, (err, items) => {
+    if (!err) {
+      log(items)
     } else {
       throw new Error(err)
     }
