@@ -26,7 +26,7 @@ if (!p.photo || !p.meta) {
         // Read corresponding meta file in directory
         fs.readFile(`${p.meta}${item.split('.')[0]}.json`, (fileErr, data) => {
           if (fileErr) throw fileErr
-          log(data)
+          log(JSON.parse(data))
         })
       }
       return item
