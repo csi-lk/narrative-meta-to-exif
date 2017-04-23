@@ -6,9 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "nm2e": "./index.js"
+  },
   "keywords": [
     "narrative"
   ],
   "author": "Callum Silcock",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "node-exiftool": "^2.1.1"
+  }
 }
