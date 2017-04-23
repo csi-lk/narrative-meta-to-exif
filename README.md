@@ -1,10 +1,10 @@
-#Narrative Meta to EXIF
+# Narrative Meta to EXIF
 
 To set EXIF metadata on downloaded Narrative Clip photos
 
 Will grab corresponding JSON files for each JPEG and write the EXIF
 
-##Installation
+## Installation
 
 Make sure you download and install [NodeJs](https://nodejs.org/en/download/)
 
@@ -16,7 +16,7 @@ npm install
 npm link
 ```
 
-##Running
+## Running
 
 Specify the corresponding photo directory and meta directory, the script will run through each and set the date times
 
@@ -24,7 +24,7 @@ Specify the corresponding photo directory and meta directory, the script will ru
 nm2e --photo <path> --meta <path>
 ```
 
-##Info
+## Info
 
 I created this because I needed it, hopefully it helps someone else 😇
 
