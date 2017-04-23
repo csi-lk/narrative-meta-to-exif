@@ -16,13 +16,21 @@ p
 if (!p.photo || !p.meta) {
   log('Need photo directory and meta directory set')
 } else {
-  log(p.meta)
-  fs.readdir(p.photo, (err, items) => {
-    if (!err) {
-      log(items)
-    } else {
-      throw new Error(err)
-    }
+  // Get all files in dir
+  fs.readdir(p.photo, (dirErr, items) => {
+    if (dirErr) throw dirErr
+    // Loop through all files in photo directory
+    items.map((item) => {
+      // Only match jpg files
+      if (item.split('.').pop() === 'jpg') {
+        // Read corresponding meta file in directory
+        fs.readFile(`${p.meta}${item.split('.')[0]}.json`, (fileErr, data) => {
+          if (fileErr) throw fileErr
+          log(data)
+        })
+      }
+      return item
+    })
   })
 }
 
